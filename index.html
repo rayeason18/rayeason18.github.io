@@ -14,16 +14,19 @@
 <meta property="og:title" content="Ray | 投资、人性、生活 — ray闲聊">
 <meta property="og:description" content="聊投资、人性和生活。不讲黑话，只说人话。微信公众号：ray闲聊。">
 <meta property="og:url" content="https://ray-dev.loc.cc/">
+<meta property="og:image" content="https://ray-dev.loc.cc/hero.jpg">
 <meta property="og:locale" content="zh_CN">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ray | 投资、人性、生活 — ray闲聊">
 <meta name="twitter:description" content="聊投资、人性和生活。不讲黑话，只说人话。微信公众号：ray闲聊。">
+<meta name="twitter:image" content="https://ray-dev.loc.cc/hero.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Ray",
   "url": "https://ray-dev.loc.cc/",
+  "image": "https://ray-dev.loc.cc/hero.jpg",
   "inLanguage": "zh-CN",
   "description": "Ray 的个人主页：聊投资、人性和生活，用大白话说人话。微信公众号：ray闲聊。",
   "author": {
@@ -34,54 +37,225 @@
 </script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --paper: #faf7f1;
+    --card: #fffdf9;
+    --ink: #1c1a17;
+    --muted: #6b655c;
+    --faint: #a39a8d;
+    --line: #e8e0d3;
+    --accent: #a63a2a;
+    --accent-soft: #f6e8e4;
+  }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-    background: #fafafa;
-    color: #1a1a1a;
-    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+  }
+  .serif { font-family: Georgia, "Songti SC", "STSong", "Noto Serif SC", serif; }
+  header.top {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 24px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  header.top .logo { font-size: 20px; font-weight: 700; letter-spacing: .12em; }
+  header.top .sub { font-size: 14px; color: var(--muted); letter-spacing: .1em; }
+  .hero { position: relative; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+  .hero .overlay {
+    position: absolute;
+    left: 48px;
+    bottom: 36px;
+    color: #fff;
+    text-shadow: 0 2px 18px rgba(0,0,0,.55);
+  }
+  .hero .overlay h1 { font-size: 64px; line-height: 1.1; letter-spacing: .06em; }
+  .hero .overlay p { margin-top: 10px; font-size: 19px; letter-spacing: .08em; }
+  main { max-width: 960px; margin: 0 auto; padding: 0 24px 64px; }
+  section { margin-top: 56px; }
+  section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: .06em;
+  }
+  section h2::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 3px;
+    background: var(--accent);
+    margin-top: 10px;
+    border-radius: 2px;
+  }
+  .intro p { margin-top: 18px; font-size: 17px; color: #3d3a35; max-width: 640px; }
+  .cards {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 26px 24px;
+  }
+  .card .num {
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: .2em;
+    font-weight: 700;
+  }
+  .card h3 { margin-top: 10px; font-size: 21px; }
+  .card p { margin-top: 8px; font-size: 15px; color: var(--muted); }
+  .articles { margin-top: 8px; }
+  .article {
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+    padding: 20px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .article:last-child { border-bottom: none; }
+  .article .no {
+    flex: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .08em;
+  }
+  .article h3 { font-size: 18px; line-height: 1.6; }
+  .article p { margin-top: 4px; font-size: 15px; color: var(--muted); }
+  .wechat {
+    margin-top: 24px;
+    background: var(--accent-soft);
+    border-radius: 14px;
+    padding: 30px 32px;
     text-align: center;
   }
-  h1 { font-size: 56px; font-weight: 700; letter-spacing: 0.08em; }
-  .tagline { margin-top: 18px; font-size: 18px; color: #555; line-height: 1.8; }
-  .tagline span { color: #999; margin: 0 8px; }
-  .card {
-    margin-top: 40px;
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 12px;
-    padding: 24px 32px;
-    max-width: 420px;
-    width: 100%;
+  .wechat .label { font-size: 13px; color: var(--accent); letter-spacing: .2em; font-weight: 700; }
+  .wechat .name { margin-top: 8px; font-size: 28px; font-weight: 700; letter-spacing: .06em; }
+  .wechat p { margin-top: 8px; font-size: 15px; color: var(--muted); }
+  .sign { margin-top: 56px; text-align: center; font-size: 14px; color: var(--faint); letter-spacing: .14em; }
+  footer { margin-top: 14px; text-align: center; font-size: 12px; color: var(--faint); padding-bottom: 32px; }
+  @media (max-width: 640px) {
+    .hero img { height: 260px; }
+    .hero .overlay { left: 28px; bottom: 22px; }
+    .hero .overlay h1 { font-size: 42px; }
+    .hero .overlay p { font-size: 16px; }
+    .cards { grid-template-columns: 1fr; }
+    .article { flex-direction: column; gap: 4px; }
   }
-  .card .label { font-size: 13px; color: #999; letter-spacing: 0.15em; }
-  .card .name { margin-top: 8px; font-size: 22px; font-weight: 600; }
-  .card .desc { margin-top: 8px; font-size: 15px; color: #666; line-height: 1.8; }
-  .sign { margin-top: 48px; font-size: 14px; color: #aaa; letter-spacing: 0.1em; }
-  footer { margin-top: 16px; font-size: 12px; color: #bbb; }
   @media (prefers-color-scheme: dark) {
-    body { background: #111; color: #eee; }
-    .tagline { color: #aaa; }
-    .card { background: #1c1c1c; border-color: #2c2c2c; }
-    .card .desc { color: #999; }
+    :root {
+      --paper: #171512;
+      --card: #211e1a;
+      --ink: #ede8df;
+      --muted: #a89f92;
+      --faint: #6e675c;
+      --line: #332e28;
+      --accent: #d06a55;
+      --accent-soft: #2c211d;
+    }
+    .intro p { color: #cfc8bc; }
   }
 </style>
 </head>
 <body>
-  <main>
-    <h1>Ray</h1>
-    <p class="tagline">投资<span>·</span>人性<span>·</span>生活<br>用大白话聊聊</p>
-    <div class="card">
-      <div class="label">微信公众号</div>
-      <div class="name">ray闲聊</div>
-      <div class="desc">聊投资、人性和生活。<br>不讲黑话，只说人话。</div>
+  <header class="top">
+    <div class="logo">Ray</div>
+    <div class="sub">ray闲聊</div>
+  </header>
+
+  <div class="hero">
+    <img src="hero.jpg" alt="黎明时分，一位登山者站在山脊上仰望金色的雪山">
+    <div class="overlay">
+      <h1 class="serif">Ray</h1>
+      <p>投资 · 人性 · 生活，用大白话聊聊</p>
     </div>
-    <p class="sign">Peace &amp; Love</p>
+  </div>
+
+  <main>
+    <section class="intro">
+      <h2>ray闲聊是什么</h2>
+      <p>一个用大白话聊投资、人性和生活的公众号。不讲黑话，不端架子，看到什么就说什么。写给愿意把事情想明白的人。</p>
+    </section>
+
+    <section>
+      <h2>聊什么</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="num">01</div>
+          <h3>投资</h3>
+          <p>市场、周期、常识。先看明白钱是怎么流动的，再动手。</p>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h3>人性</h3>
+          <p>欲望、偏见、选择。人很多时候不是输给市场，是输给自己。</p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>生活</h3>
+          <p>日常里的小事，藏着大道理。把日子过明白。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>最近在写</h2>
+      <div class="articles">
+        <div class="article">
+          <div class="no">005</div>
+          <div>
+            <h3>找对标的本质是降维模仿</h3>
+            <p>想达成某个目标，就去模仿那些已经超额完成它的人，而不是只比你强一点的同行。</p>
+          </div>
+        </div>
+        <div class="article">
+          <div class="no">003</div>
+          <div>
+            <h3>赚钱只需要执行力 + 商业模式</h3>
+            <p>很多赚到钱的人都没有认知，甚至智力都不正常。</p>
+          </div>
+        </div>
+        <div class="article">
+          <div class="no">002</div>
+          <div>
+            <h3>黄仁勋为什么辞职</h3>
+            <p>蔡金强的说法，和我的看法。</p>
+          </div>
+        </div>
+        <div class="article">
+          <div class="no">001</div>
+          <div>
+            <h3>语言的边界就是思维的边界</h3>
+            <p>使用垃圾语言，就会拥有垃圾思维。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wechat">
+        <div class="label">微信公众号</div>
+        <div class="name">ray闲聊</div>
+        <p>微信里搜「ray闲聊」，关注就能看到更新。</p>
+      </div>
+      <p class="sign">Peace &amp; Love</p>
+    </section>
   </main>
+
   <footer>© 2026 Ray · ray-dev.loc.cc</footer>
 </body>
 </html>
